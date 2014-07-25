@@ -1,0 +1,220 @@
+<!-- 
+<RelativeLayou
+	android:background="@drawable/aaapp_bg_feed_high"
+	android:background="@drawable/aaapp_bg_plain_high"
+	
+    <ImageView
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/aaapp_header" />
+        
+        android:layout_below="@+id/segmented_control"
+        
+    <ListView
+        android:id="@+id/list"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/segmented_control"
+        android:layout_marginTop="110dp"
+        android:layout_marginBottom="5dp"
+        android:divider="#b5b5b5"
+        android:dividerHeight="1dp"
+        android:listSelector="@drawable/list_selector" />
+        
+        android:src="@drawable/ic_menu_back" 
+ -->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:segmented="http://schemas.android.com/apk/res/com.jway.apostolic"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/aaapp_bg_plain_high"
+    tools:context=".DiscoverActivity" >
+    
+    <ImageView
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/aaapp_header" />
+    
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/segmented_control"
+        android:src="@drawable/aa_header_blog" />
+    
+    <ImageButton 
+        android:id="@+id/back_button"
+        android:layout_height="wrap_content"
+ 		android:layout_width="wrap_content"
+ 		android:layout_marginTop="6dp"
+ 		android:src="@drawable/btn_back_48x32" 
+        android:background="@android:color/transparent"
+ 		android:onClick="backButtonClicked" 
+ 		 />
+    
+    <TextView 
+        android:id="@+id/title" 
+        android:layout_width="fill_parent" 
+        android:layout_height="40dp" 
+		android:textColor="@color/title_color"
+		android:textSize="15dip"
+        android:textStyle="bold"
+		android:layout_below="@+id/header"
+        android:layout_marginTop="1dp"
+        android:layout_marginLeft="5dp"
+        />
+    
+        <TextView 
+        android:id="@+id/date" 
+        android:layout_width="fill_parent" 
+        android:layout_height="wrap_content" 
+		android:textColor="@color/date_color"
+		android:textSize="10dip"
+		android:layout_below="@+id/title"
+        android:layout_marginTop="1dp"
+        android:layout_marginLeft="5dp"
+        />
+        
+       <RelativeLayout android:id="@+id/sharing_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/date"
+        android:layout_marginTop="5dp"
+        
+        >
+        
+    	<ImageButton
+        	android:id="@+id/prev_button"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:src="@drawable/btn_prevon" 
+        	android:onClick="prevButtonClicked"
+        	android:background="@android:color/transparent"
+        	android:layout_marginLeft="5dp"
+        	/>
+    	
+  		<ImageButton
+        	android:id="@+id/next_button"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:src="@drawable/btn_nexton"
+        	android:layout_toRightOf="@+id/prev_button" 
+        	android:layout_marginLeft="10dp"
+        	android:onClick="nextButtonClicked"
+        	android:background="@android:color/transparent"
+        	/>
+  	
+  		<ImageButton
+        	android:id="@+id/fb_button"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:src="@drawable/ico_share_fbon" 
+        	android:layout_toLeftOf="@+id/tw_button"
+        	android:layout_marginRight="30dp"
+        	android:onClick="fbButtonClicked"
+ 			android:background="@android:color/transparent"
+        	/>
+  	
+  		<ImageButton
+        	android:id="@+id/tw_button"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:src="@drawable/ico_share_twon" 
+        	android:layout_alignParentRight = "true"
+        	android:layout_marginRight="10dp"
+        	android:onClick="twButtonClicked"
+        	android:background="@android:color/transparent"
+        	/>
+           
+       </RelativeLayout>
+        
+    <!-- 
+    android:layout_margin="5dip"
+    android:layout_gravity="center_vertical|center_horizontal" 
+    -->
+    <com.jway.apostolic.SegmentedControlView
+        android:id="@+id/segmented_control"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"       
+        android:checkedButton="@+id/button_first"    
+ 		android:layout_centerInParent="true"
+        android:layout_below="@+id/header"
+        android:layout_marginTop="5dp"
+        segmented:firstButtonBackground="@drawable/segmented_button_background_first"
+        segmented:lastButtonBackground="@drawable/segmented_button_background_last"
+        segmented:middleButtonBackground="@drawable/segmented_button_background_middle"
+        segmented:uniqueButtonBackground="@drawable/segmented_button_background_unique"
+        >
+        
+        <RadioButton
+            android:id="@+id/button_first"
+            android:minWidth="100dp"
+            android:text="News"
+            android:button="@null"
+            android:gravity="center"
+            android:padding="5dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/segmented_button_text" />
+        <RadioButton
+            android:minWidth="100dp"
+            android:text="Events"
+            android:button="@null"
+            android:gravity="center"
+            android:padding="5dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/segmented_button_text" />
+        <RadioButton
+            android:minWidth="100dp"
+            android:text="Blog"
+            android:button="@null"
+            android:gravity="center"
+            android:padding="5dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/segmented_button_text" />
+    </com.jway.apostolic.SegmentedControlView>
+    
+    <ProgressBar android:id="@+android:id/progress_large"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" 
+        android:layout_below="@id/segmented_control"
+        android:layout_centerInParent="true"
+        />
+    
+    <ListView
+        android:id="@+id/list"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/logo"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="5dp"
+        android:divider="#b5b5b5"
+        android:dividerHeight="1dp"
+        android:listSelector="@drawable/list_selector" />
+    
+    <WebView android:id="@+id/web_engine"  
+        android:layout_width="fill_parent"  
+        android:layout_height="fill_parent" 
+        android:layout_below="@+id/sharing_bar"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp" 
+        />  
+ 
+
+</RelativeLayout>
+
+<!-- 
+
+   <WebView android:id="@+id/web_engine"  
+        android:layout_width="fill_parent"  
+        android:layout_height="fill_parent" 
+        android:layout_below="@+id/header"
+        android:layout_marginTop="90dp"
+        android:layout_marginBottom="10dp" 
+        />  
+ -->

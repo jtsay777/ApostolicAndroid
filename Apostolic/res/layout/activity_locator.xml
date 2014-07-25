@@ -1,0 +1,294 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:segmented="http://schemas.android.com/apk/res/com.jway.apostolic"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LocatorActivity" >
+    
+    <ImageView
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/aaapp_header" />
+    
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/header"
+        android:src="@drawable/aa_header_locator" />
+    
+    <ProgressBar android:id="@+android:id/progress_large"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" 
+        android:layout_below="@+id/header"
+        android:layout_centerInParent="true"
+        />
+    
+    <ImageButton 
+        android:id="@+id/back_button"
+        android:layout_height="wrap_content"
+ 		android:layout_width="wrap_content"
+		android:layout_marginTop="6dp"
+ 		android:src="@drawable/btn_back_48x32" 
+        android:background="@android:color/transparent"
+ 		android:onClick="backButtonClicked" 
+ 		 />
+    
+    <com.jway.apostolic.SegmentedControlView
+        android:id="@+id/locator_segmented_control"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"       
+        android:checkedButton="@+id/button_first"    
+ 		android:layout_centerInParent="true"
+        android:layout_below="@+id/header"
+        android:layout_marginTop="5dp"
+        segmented:firstButtonBackground="@drawable/segmented_button_background_first"
+        segmented:lastButtonBackground="@drawable/segmented_button_background_last"
+        segmented:middleButtonBackground="@drawable/segmented_button_background_middle"
+        segmented:uniqueButtonBackground="@drawable/segmented_button_background_unique"
+        >
+        
+        <RadioButton
+            android:id="@+id/button_first"
+            android:minWidth="100dp"
+            android:text="Nearby"
+            android:button="@null"
+            android:gravity="center"
+            android:padding="5dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/segmented_button_text" />
+        <RadioButton
+            android:minWidth="100dp"
+            android:text="Search"
+            android:button="@null"
+            android:gravity="center"
+            android:padding="5dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/segmented_button_text" />
+        <RadioButton
+            android:minWidth="100dp"
+            android:text="Map"
+            android:button="@null"
+            android:gravity="center"
+            android:padding="5dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/segmented_button_text" />
+    </com.jway.apostolic.SegmentedControlView>
+    
+    <ListView
+    android:id="@+id/church_list"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+
+    android:layout_marginTop="160dp"
+    android:layout_marginBottom="5dp"
+    android:divider="#b5b5b5"
+    android:dividerHeight="1dp"
+    android:listSelector="@drawable/list_selector" />
+    
+    <ListView
+    android:id="@+id/search_list"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+
+    android:layout_marginTop="160dp"
+    android:layout_marginBottom="5dp"
+    android:divider="#b5b5b5"
+    android:dividerHeight="1dp"
+    android:listSelector="@drawable/list_selector" />
+    
+   <ListView
+    android:id="@+id/church_info_list"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+	android:layout_below="@+id/logo"
+    android:layout_marginTop="50dp"
+    android:layout_marginBottom="5dp"
+    android:divider="#b5b5b5"
+    android:dividerHeight="1dp"
+    android:listSelector="@drawable/list_selector" />
+    
+    <TextView
+        android:id="@+id/pastor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/logo"
+        android:textColor="@color/title_color"
+		android:textSize="15dip"
+        android:textStyle="bold"
+        android:layout_marginLeft="5dp"
+        android:text="" />
+    
+    <TextView
+        android:id="@+id/district_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/pastor"
+        android:textSize="12dip"
+        android:layout_marginLeft="5dp"
+        android:text="" />
+    
+    <TextView
+        android:id="@+id/church_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/pastor"
+        android:layout_toRightOf="@+id/district_name"
+        android:textSize="12dip"
+        android:text="" />
+    
+     <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+ 		android:layout_alignParentBottom="true"
+        android:text="" />
+     
+ 
+    
+     
+    <FrameLayout
+    android:id="@+id/map_view_container"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/locator_segmented_control"
+    android:layout_marginTop="5dp"
+    android:layout_above="@+id/textView"
+    />
+    
+	<RelativeLayout
+	android:id="@+id/searchTextLayout"
+	android:layout_width="match_parent"
+	android:layout_height="44dip"
+	android:orientation="horizontal"
+	android:layout_below="@+id/locator_segmented_control"
+	android:layout_marginTop="5dip"
+	>
+	 
+		<ImageButton
+		android:id="@+id/searchTextButton"
+		android:layout_width="wrap_content"
+		android:layout_height="match_parent"
+		android:background="#000088"
+		android:scaleType="fitCenter"
+		android:layout_alignParentLeft="true"
+		android:src="@drawable/search_icon"
+		/>
+		 
+		<EditText
+		android:id="@+id/searchText"
+		android:layout_toRightOf="@id/searchTextButton"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:padding="8dp"
+		android:textColor="@android:color/white"
+		android:background="@drawable/background_black_border_full" />
+	 
+	</RelativeLayout> 
+	
+	<SeekBar android:id="@+id/seekbar"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_below="@+id/locator_segmented_control"
+		android:layout_centerInParent="true"
+		android:layout_marginTop="15dip"
+		android:progress="50"
+		android:max="100" 
+		android:minWidth="300dp"
+	/>
+	
+	   <TextView
+        android:id="@+id/churches_found"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/seekbar"
+        android:layout_marginTop="12dp"
+        android:textSize="18dip"
+        android:textStyle="bold"
+        android:text="" />
+	    
+     <WebView android:id="@+id/webView"  
+        android:layout_width="fill_parent"  
+        android:layout_height="fill_parent" 
+        android:layout_below="@+id/header"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="10dp" 
+        />  
+
+</RelativeLayout>
+
+<!--
+
+   <ListView
+    android:id="@+id/church_info_list"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="220dp"
+    android:layout_marginBottom="5dp"
+    android:divider="#b5b5b5"
+    android:dividerHeight="1dp"
+    android:listSelector="@drawable/list_selector" />
+    
+    <TextView
+        android:id="@+id/pastor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/logo"
+        android:layout_marginTop="120dp"
+        android:textColor="@color/title_color"
+		android:textSize="15dip"
+        android:textStyle="bold"
+        android:text="" />
+    
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+ 		android:layout_alignParentBottom="true"
+        android:text="Locator" />
+
+	android:layout_marginBottom="20dip"
+	android:layout_marginTop="40dip"
+	android:layout_marginLeft="30dip"
+	android:layout_marginRight="30dip"
+	android:layout_alignParentLeft="true"
+	android:layout_alignParentTop="true" 
+	android:contentDescription="@string/picture"
+		
+   <ListView
+    android:id="@+id/church_list"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/header
+    android:layout_marginTop="110dp"
+    android:layout_marginBottom="5dp"
+    android:divider="#b5b5b5"
+    android:dividerHeight="1dp"
+    android:listSelector="@drawable/list_selector" />
+
+    android:layout_marginTop="110dp"
+        android:layout_marginBottom="5dp"
+	   android:layout_below="@+id/segmented_control"
+       android:layout_centerVertical="true"
+       
+android:apiKey="05M-7qOGbEjYduPPUdQgJt9ysL8HToawGdvu_ow" - original from AndroidHive
+android:apiKey="0rsx4mjCOwSSc-Qsif-Nf6IDvORdUYYRZNNF1HQ" - Johnson Google Maps key for debug version(associated with 51:E8:C2:4D:92:93:34:F8:93:0C:77:E0:80:97:ED:DE)
+android:apiKey="0rsx4mjCOwST_IekqR4Ce-fs4RuhxMsN7w8K5Fg" - Google Maps API Key for release version(associated with 7B:D4:B8:AC:DA:18:FC:A2:B0:05:DB:8E:10:3F:CF:1B)
+
+    <com.google.android.maps.MapView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mapView"
+    android:layout_width="fill_parent"
+     android:layout_height="wrap_content"
+    android:layout_below="@+id/header"
+    android:layout_above="@+id/textView"
+    android:clickable="true"
+    android:apiKey="0rsx4mjCOwSSc-Qsif-Nf6IDvORdUYYRZNNF1HQ"
+    />
+
+-->

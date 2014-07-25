@@ -1,0 +1,124 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/aaapp_bg_plain_high"
+    tools:context=".ConnectActivity" >
+    
+    <ImageView
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/aaapp_header" />
+    
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/header"
+        android:src="@drawable/aa_header_connect" />
+    
+    <ImageButton 
+        android:id="@+id/back_button"
+        android:layout_height="wrap_content"
+ 		android:layout_width="wrap_content"
+ 		android:layout_marginTop="6dp"
+ 		android:src="@drawable/btn_back_48x32" 
+        android:background="@android:color/transparent"
+ 		android:onClick="backButtonClicked" 
+ 		 />
+    
+    <ProgressBar android:id="@+android:id/progress_large"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" 
+        android:layout_below="@+id/header"
+        android:layout_centerInParent="true"
+        />
+    
+
+    
+    <ListView
+        android:id="@+id/list"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="5dp"
+        android:divider="#b5b5b5"
+        android:dividerHeight="1dp"
+        android:listSelector="@drawable/list_selector" 
+        />
+    
+	 <TextView 
+        android:id="@+id/title" 
+        android:layout_width="fill_parent" 
+        android:layout_height="wrap_content" 
+		android:textColor="@color/title_color"
+		android:textSize="15dip"
+        android:textStyle="bold"
+		android:layout_below="@+id/logo"
+        android:layout_marginTop="-15dp"
+        android:layout_marginLeft="5dp"
+        android:text="Ways to connect."
+        />
+    
+    <WebView android:id="@+id/webView"  
+        android:layout_width="fill_parent"  
+        android:layout_height="fill_parent" 
+        android:layout_below="@+id/header"
+        android:layout_marginTop="1dp"
+        android:layout_marginBottom="2dp" 
+        />  
+
+</RelativeLayout>
+
+<!-- 
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/aaapp_bg_connect_high"
+    tools:context=".ConnectActivity" >
+    
+   <ListView
+        android:id="@+id/list"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/header"
+        android:layout_marginTop="160dp"
+        android:layout_marginBottom="5dp"
+        android:divider="#b5b5b5"
+        android:dividerHeight="1dp"
+        android:listSelector="@drawable/list_selector" 
+        />
+    
+	 <TextView 
+        android:id="@+id/title" 
+        android:layout_width="fill_parent" 
+        android:layout_height="wrap_content" 
+		android:textColor="@color/title_color"
+		android:textSize="15dip"
+        android:textStyle="bold"
+		android:layout_below="@+id/header"
+        android:layout_marginTop="135dp"
+        android:text="Ways to connect."
+        />
+    
+    
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:text="Connect" />
+        
+    <com.facebook.widget.LoginButton
+        android:id="@+id/authButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp"
+        />
+ -->
