@@ -1,5 +1,6 @@
 package com.jway.apostolic;
 
+//testing for github connecting
 public class Church {
 	
 	//private variables
